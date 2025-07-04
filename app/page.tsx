@@ -94,13 +94,7 @@ const dressImages = [
 ];
 
 export default function Home() {
-  const [selectedFilters, setSelectedFilters] = useState({
-    style: 'All',
-    color: 'All',
-    occasion: 'All'
-  });
-  const [filteredDresses, setFilteredDresses] = useState(dressImages);
-  const [selectedImage, setSelectedImage] = useState(null);
+  
   const [bookingProgress, setBookingProgress] = useState(67);
   const [isLoading, setIsLoading] = useState(true);
 
