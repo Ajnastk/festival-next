@@ -18,80 +18,6 @@ import {
   X
 } from 'lucide-react';
 
-const dressImages = [
-  {
-    id: 1,
-    url: 'https://images.pexels.com/photos/5704849/pexels-photo-5704849.jpeg?auto=compress&cs=tinysrgb&w=500&h=750&fit=crop',
-    title: 'Traditional Kerala Kasavu Saree',
-    style: 'Traditional',
-    color: 'Ivory',
-    occasion: 'Festival',
-    price: '₹2,999'
-  },
-  {
-    id: 2,
-    url: 'https://images.pexels.com/photos/5704851/pexels-photo-5704851.jpeg?auto=compress&cs=tinysrgb&w=500&h=600&fit=crop',
-    title: 'Emerald Green Pavada Set',
-    style: 'Traditional',
-    color: 'Green',
-    occasion: 'Wedding',
-    price: '₹3,499'
-  },
-  {
-    id: 3,
-    url: 'https://images.pexels.com/photos/5704853/pexels-photo-5704853.jpeg?auto=compress&cs=tinysrgb&w=500&h=800&fit=crop',
-    title: 'Golden Tissue Lehenga',
-    style: 'Contemporary',
-    color: 'Gold',
-    occasion: 'Party',
-    price: '₹4,999'
-  },
-  {
-    id: 4,
-    url: 'https://images.pexels.com/photos/5704855/pexels-photo-5704855.jpeg?auto=compress&cs=tinysrgb&w=500&h=650&fit=crop',
-    title: 'Burgundy Silk Saree',
-    style: 'Traditional',
-    color: 'Burgundy',
-    occasion: 'Festival',
-    price: '₹3,299'
-  },
-  {
-    id: 5,
-    url: 'https://images.pexels.com/photos/5704857/pexels-photo-5704857.jpeg?auto=compress&cs=tinysrgb&w=500&h=700&fit=crop',
-    title: 'Ivory Chanderi Salwar',
-    style: 'Contemporary',
-    color: 'Ivory',
-    occasion: 'Casual',
-    price: '₹2,499'
-  },
-  {
-    id: 6,
-    url: 'https://images.pexels.com/photos/5704859/pexels-photo-5704859.jpeg?auto=compress&cs=tinysrgb&w=500&h=600&fit=crop',
-    title: 'Forest Green Anarkali',
-    style: 'Contemporary',
-    color: 'Green',
-    occasion: 'Party',
-    price: '₹3,799'
-  },
-  {
-    id: 7,
-    url: 'https://images.pexels.com/photos/5704861/pexels-photo-5704861.jpeg?auto=compress&cs=tinysrgb&w=500&h=750&fit=crop',
-    title: 'Golden Banarasi Saree',
-    style: 'Traditional',
-    color: 'Gold',
-    occasion: 'Wedding',
-    price: '₹5,999'
-  },
-  {
-    id: 8,
-    url: 'https://images.pexels.com/photos/5704863/pexels-photo-5704863.jpeg?auto=compress&cs=tinysrgb&w=500&h=650&fit=crop',
-    title: 'Maroon Georgette Dress',
-    style: 'Contemporary',
-    color: 'Burgundy',
-    occasion: 'Party',
-    price: '₹2,799'
-  }
-];
 
 export default function Home() {
   
@@ -164,7 +90,7 @@ export default function Home() {
                 className="bg-gradient-to-r from-emerald-600 to-amber-600 hover:from-emerald-700 hover:to-amber-700 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
               >
                 <Zap className="h-5 w-5 mr-2" />
-                Book Now for ₹99
+                Book Now for ₹99 per Person
               </Button>
               <div className="flex items-center text-emerald-700">
                 <Star className="h-5 w-5 text-amber-500 mr-1" />
