@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import ProductShowcase from '@/components/ui/products';
 import { 
   Filter, 
   MessageCircle, 
@@ -180,6 +180,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className='collections'>
+        <ProductShowcase />
+      </div>
 
       {/* Collection Launch Section */}
       <section className="py-12 bg-gradient-to-r from-emerald-800 to-amber-800 text-white">
