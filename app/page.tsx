@@ -70,18 +70,18 @@ export default function Home() {
           </div>
         </div>
       </nav>
-
       {/* Hero Section */}
-      <section className="relative py-12 md:py-20 overflow-hidden">
+      <section className="relative overflow-hidden min-h-screen flex flex-col justify-center">
+
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 to-amber-600/10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-800 to-amber-700 bg-clip-text text-transparent">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-10 bg-gradient-to-r from-emerald-800 to-amber-700 bg-clip-text text-transparent">
               Onam Dress Selection
               <br />
               <span className="text-red-600">Chaos?</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
               Skip the last-minute rush! Pre-book your perfect Onam dress from our curated collection
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -100,6 +100,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
 
       <div className='collections'>
         <ProductShowcase />
