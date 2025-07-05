@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     description: 'Skip the last-minute rush! Pre-book your perfect Onam traditional dress from our curated collection.',
     type: 'website',
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({

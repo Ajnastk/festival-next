@@ -182,6 +182,12 @@ const ProductShowcase: React.FC = () => {
       });
     }
   };
+    const handleBookNow = () => {
+    window.open(
+      "https://wa.me/919876543210?text=I want to book my Onam dress for ₹99!",
+      "_blank"
+    );
+  };
 
   // const formatPrice = (price: number) =>
   //   new Intl.NumberFormat('en-US', {
@@ -331,21 +337,25 @@ const ProductShowcase: React.FC = () => {
         </div>
       </div>
 
-      {/* Enhanced CTA Section */}
-      <div className="text-center pb-12">
-        <div className="max-w-2xl mx-auto px-4">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Ready to Book Your Perfect Onam Dress?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Don&apos;t wait until the last minute! Secure your favorite design today with our early bird offer.
-          </p>
-          <button className="bg-gradient-to-r from-emerald-600 to-amber-600 hover:from-emerald-700 hover:to-amber-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-all duration-300">
-            <ShoppingBag className="inline h-5 w-5 mr-2" />
-            Book Your Collection Now
-          </button>
-        </div>
-      </div>
+     {/* Enhanced CTA Section */}
+<div className="text-center pb-12">
+  <div className="max-w-2xl mx-auto px-4">
+    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+      Ready to Book Your Perfect Onam Dress?
+    </h3>
+    <p className="text-gray-600 mb-6">
+      Don&apos;t wait until the last minute! Secure your favorite design today with our early bird offer.
+    </p>
+    <div className="flex justify-center">
+      <button 
+      onClick={handleBookNow}
+      className="bg-gradient-to-r from-emerald-600 to-amber-600 hover:from-emerald-700 hover:to-amber-700 text-white px-3 xs:px-4 sm:px-8 py-3 xs:py-4 sm:py-6 text-sm sm:text-lg font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 whitespace-nowrap flex items-center justify-center">
+        <ShoppingBag className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
+        Book Your Collection Now
+      </button>
+    </div>
+  </div>
+</div>
     </div>
   );
 };
