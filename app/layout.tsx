@@ -8,19 +8,14 @@ const unbounded = Unbounded({
   variable: "--font-unbounded",
 });
 
-export const metadata: Metadata = {
-  title: 'Onakkodi - Pre-book Your Perfect Onam Dress',
-  description: 'Skip the last-minute rush! Pre-book your perfect Onam traditional dress from our curated collection. Early bird benefits and exclusive designs await.',
-  keywords: 'Onam, Kerala dress, traditional wear, pre-booking, Onakkodi, festival dress',
-  openGraph: {
-    title: 'Onakkodi - Pre-book Your Perfect Onam Dress',
-    description: 'Skip the last-minute rush! Pre-book your perfect Onam traditional dress from our curated collection.',
-    type: 'website',
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+export const metadata = {
+  title: "Onakkodi",
+  description: "Pre-book your Onam dress",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
