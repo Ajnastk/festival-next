@@ -2,19 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
-import { Heart, ShoppingBag, Eye, Share2, Check, Download } from 'lucide-react';
+import { Heart, ShoppingBag, Eye, Share2, Check, Download,Sparkles } from 'lucide-react';
 import onam1 from '@/public/images/onamImage-1.jpg';
 import onam2 from '@/public/images/onamImage-2.jpg';
 import onam3 from '@/public/images/onamImage-3.jpg';
 import onam4 from '@/public/images/onamImage-4.jpg';
 import onam5 from '@/public/images/onamImage-5.jpg';
+import onam6 from '@/public/images/onamImage-6.png'
 
 interface Product {
   id: number;
   title: string;
   price?: number;
   originalPrice?: number;
-  image: string | StaticImageData; // ✅ allow both string & StaticImageData
+  image: string | StaticImageData;
   category?: string;
   width: number;
   height: number;
@@ -24,42 +25,54 @@ interface Product {
 const sampleProducts: Product[] = [
   {
     id: 1,
-    title: 'oname image-1',
+    title: 'onam image-1',
     image: onam1,
     width: 400,
     height: 500,
   },
   {
     id: 2,
-    title: 'oname image-2',
+    title: 'onam image-2',
     image: onam2,
     width: 400,
     height: 500,
   },
   {
     id: 3,
-    title: 'oname image-3',
+    title: 'onam image-3',
     image: onam3,
     width: 400,
     height: 500,
   },
   {
     id: 4,
-    title: 'oname image-4',
+    title: 'onam image-4',
     image: onam4,
     width: 400,
     height: 500,
   },
   {
     id: 5,
-    title: 'oname image-5',
+    title: 'onam image-5',
     image: onam5,
+    width: 400,
+    height: 500,
+  },
+  {
+    id: 6,
+    title: 'onam image-6',
+    image: onam6,
     width: 400,
     height: 500,
   },
 ];
 
 const ProductShowcase: React.FC = () => {
+  // Mobile slideshow state
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+
   const [products, setProducts] = useState<Product[]>([]);
   const [likedProducts, setLikedProducts] = useState<Set<number>>(new Set());
   const [downloadingProducts, setDownloadingProducts] = useState<Set<number>>(new Set());
@@ -68,6 +81,23 @@ const ProductShowcase: React.FC = () => {
   useEffect(() => {
     setProducts(sampleProducts);
   }, []);
+
+  // Auto-advance slideshow (mobile only)
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) =>
+          prevIndex === sampleProducts.length - 1 ? 0 : prevIndex + 1
+        );
+        setFade(true);
+      }, 500);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPlaying]);
 
   const toggleLike = (productId: number) => {
     setLikedProducts((prev) => {
@@ -85,13 +115,12 @@ const ProductShowcase: React.FC = () => {
     setDownloadingProducts((prev) => new Set(prev).add(product.id));
 
     try {
-      // ✅ NEW: ensure downloadUrl is always string
       let downloadUrl: string;
 
       if (typeof product.image === 'string') {
         downloadUrl = product.image;
 
-        // optional replacements for external URLs
+        // Optional replacements for external URLs
         if (downloadUrl.includes('w=400&h=500')) {
           downloadUrl = downloadUrl.replace('w=400&h=500', 'w=1200&h=1500');
         } else if (downloadUrl.includes('w=400&h=600')) {
@@ -108,7 +137,6 @@ const ProductShowcase: React.FC = () => {
           downloadUrl = downloadUrl.replace('w=400', 'w=1200');
         }
       } else {
-        // For StaticImageData, grab .src
         downloadUrl = product.image.src;
       }
 
@@ -122,7 +150,6 @@ const ProductShowcase: React.FC = () => {
       });
 
       const blob = await response.blob();
-
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -156,29 +183,68 @@ const ProductShowcase: React.FC = () => {
     }
   };
 
-  const formatPrice = (price: number) =>
-    new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(price);
+  // const formatPrice = (price: number) =>
+  //   new Intl.NumberFormat('en-US', {
+  //     style: 'currency',
+  //     currency: 'USD',
+  //   }).format(price);
 
   return (
-    <div className="min-h-screen flex flex-col justify-center bg-gradient-to-br from-amber-50 via-emerald-50 to-amber-100">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-amber-50 via-emerald-50 to-amber-100 justify-center gap-[30px] md:gap-[10px] ">
       {/* Header */}
-      <div className="border-b border-gray-100">
+      {/* Header */}
+      <div className="text-center mt-5">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-900 text-center">
-            Discover Amazing Products
-          </h1>
-          <p className="text-gray-600 text-center mt-2">
-            Curated collection of premium items just for you
-          </p>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Sparkles className="h-8 w-8 text-emerald-600" />
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-800 to-amber-700 bg-clip-text text-transparent">
+              Onam 2025
+            </h1>
+            <Sparkles className="h-8 w-8 text-amber-600" />
+          </div>
         </div>
       </div>
 
-      {/* Masonry grid */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 gap-4">
+      {/* Mobile Layout - Slideshow (visible only on mobile) */}
+      <div className="md:hidden px-4 pb-8">
+        <div className="relative bg-gradient-to-br from-amber-50 via-emerald-50 to-amber-100 rounded-3xl overflow-hidden shadow-2xl max-w-sm mx-auto">
+          {/* Image Container */}
+          <div className="relative overflow-hidden">
+            <Image
+              src={sampleProducts[currentIndex].image}
+              alt={sampleProducts[currentIndex].title}
+              width={sampleProducts[currentIndex].width}
+              height={sampleProducts[currentIndex].height}
+              className={`w-full h-auto object-cover transition-opacity duration-500 ${
+                fade ? 'opacity-100' : 'opacity-0'
+              }`}
+              unoptimized
+            />
+
+            {/* Gradient overlay */}
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" /> */}
+
+            {/* Progress indicators */}
+            {/* <div className="absolute bottom-4 flex justify-center gap-2 w-full">
+              {sampleProducts.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-amber-500 w-6'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div> */}
+          </div>
+        </div>
+      </div>
+
+      {/* Masonry grid (hidden on mobile, visible on md and above) */}
+      <div className="hidden md:block max-w-7xl mx-auto px-4 py-8">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {products.map((product) => (
             <div
               key={product.id}
@@ -192,7 +258,7 @@ const ProductShowcase: React.FC = () => {
                     alt={product.title}
                     width={product.width}
                     height={product.height}
-                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     unoptimized
                   />
 
@@ -265,11 +331,20 @@ const ProductShowcase: React.FC = () => {
         </div>
       </div>
 
-      {/* Load more */}
+      {/* Enhanced CTA Section */}
       <div className="text-center pb-12">
-        <button className="bg-gray-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-200 shadow-lg">
-          Load More Products
-        </button>
+        <div className="max-w-2xl mx-auto px-4">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            Ready to Book Your Perfect Onam Dress?
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Don&apos;t wait until the last minute! Secure your favorite design today with our early bird offer.
+          </p>
+          <button className="bg-gradient-to-r from-emerald-600 to-amber-600 hover:from-emerald-700 hover:to-amber-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-all duration-300">
+            <ShoppingBag className="inline h-5 w-5 mr-2" />
+            Book Your Collection Now
+          </button>
+        </div>
       </div>
     </div>
   );
