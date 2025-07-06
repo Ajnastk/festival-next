@@ -196,3 +196,14 @@ img {
   aspect-ratio: auto;
   min-height: 200px;
 }
+
+
+.masonry-grid {
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering */
+}
+
+/* Optimize image containers */
+.image-container {
+  contain: layout style paint; /* CSS containment */
+}
