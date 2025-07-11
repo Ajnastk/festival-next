@@ -21,7 +21,7 @@ export default function Home() {
 
   const handleBookNow = () => {
     window.open(
-      "https://wa.me/919876543210?text=I want to book my Onam dress for ₹99!",
+      "https://wa.me/+917736724315?text=I would like to book an Onam dress.",
       "_blank"
     );
   };

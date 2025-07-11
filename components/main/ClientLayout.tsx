@@ -11,7 +11,7 @@ interface ClientLayoutProps {
 export default function ClientLayout({ children }: ClientLayoutProps) {
   const handleWhatsAppContact = () => {
     window.open(
-      "https://wa.me/919876543210?text=Hi! I would like to book an Onam dress.",
+      "https://wa.me/+917736724315?text=Hi! I would like to book an Onam dress.",
       "_blank"
     );
   };
