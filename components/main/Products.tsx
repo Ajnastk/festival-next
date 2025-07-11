@@ -8,7 +8,7 @@ import onam2 from '@/public/images/onamImage-2.jpg';
 import onam3 from '@/public/images/onamImage-3.jpg';
 import onam4 from '@/public/images/onamImage-4.jpg';
 import onam5 from '@/public/images/onamImage-5.jpg';
-import onam6 from '@/public/images/onamImage-6.png'
+import onam6 from '@/public/images/onamImage-6.png';
 
 interface Product {
   id: number;
@@ -186,7 +186,7 @@ const ProductShowcase: React.FC = () => {
 
   const handleBookNow = useCallback(() => {
     window.open(
-      "https://wa.me/919876543210?text=I want to book my Onam dress for ₹99!",
+      "https://wa.me/+917736724315?text=I would like to book an Onam dress.",
       "_blank"
     );
   }, []);
