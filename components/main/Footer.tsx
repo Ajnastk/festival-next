@@ -16,7 +16,7 @@ export default function Footer({ onWhatsAppContact }: FooterProps) {
         <p className="text-amber-200 mb-4">
           Making Onam shopping stress-free, one dress at a time
         </p>
-        <div className="flex justify-center space-x-6">
+        {/* <div className="flex justify-center space-x-6">
           <Button
             variant="ghost"
             onClick={onWhatsAppContact}
@@ -25,7 +25,7 @@ export default function Footer({ onWhatsAppContact }: FooterProps) {
             <MessageCircle className="h-5 w-5 mr-2" />
             WhatsApp
           </Button>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

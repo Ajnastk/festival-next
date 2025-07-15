@@ -21,7 +21,7 @@ export default function Home() {
 
   const handleBookNow = () => {
     window.open(
-      "https://wa.me/+917736724315?text=I would like to book an Onam dress.",
+      "https://forms.gle/ZCSBpfwDprjxqnDQ7",
       "_blank"
     );
   };
