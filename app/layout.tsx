@@ -11,6 +11,9 @@ const unbounded = Unbounded({
 export const metadata = {
   title: "Onakkodi",
   description: "Pre-book your Onam dress",
+  icons: {
+    icon: "/images/favicon.ico",
+  },
 };
 
 export const viewport = {
