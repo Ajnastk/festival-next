@@ -85,9 +85,9 @@ export default function Footer({ onWhatsAppContact }: FooterProps) {
 
           {/* Opening Hours */}
           <div className="flex items-start space-x-3  sm:text-left">
-            <Clock className="h-5 w-5 text-amber-400 mt-1 flex-shrink-0 mx-auto sm:mx-0" />
+            <Clock className="h-5 w-5 text-amber-200 mt-1 flex-shrink-0 mx-auto sm:mx-0" />
             <div className="flex-1">
-              <h3 className="text-amber-400 font-medium text-xs sm:text-sm mb-2 tracking-wide">
+              <h3 className="text-amber-200 font-medium text-xs sm:text-sm mb-2 tracking-wide">
                 OPENING HOURS
               </h3>
               <p className="text-white text-sm leading-relaxed">
